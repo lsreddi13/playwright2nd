@@ -2,7 +2,7 @@ import test, { expect } from "@playwright/test";
 
 test('handling drop down list', async ({ page }) => {
 
-     const expectedCountryList = [
+    const expectedCountryList = [
         'Select a country…',
         'United States',
         'Canada',
@@ -19,9 +19,15 @@ test('handling drop down list', async ({ page }) => {
     const URL = "https://www.playwrightautomation.com/practice.html?utm_source=chatgpt.com";
     await page.goto(URL);
     //verify country dropdown list is displayed 
-    const countryList = await page.getByLabel("Select Country");
+    // const countryList = await page.getByLabel("Select Country");
+    const countryList = await page.locator("#country");
+
+
+
+
     // console.log(await countryList.isVisible());
     const countryListOption = await countryList.locator("option");
+    countryListOption
     const count = await countryListOption.count();
     // console.log("Number of countries in the country list : " + await countryListOption.count());
     //verify countries list count
@@ -31,6 +37,16 @@ test('handling drop down list', async ({ page }) => {
     const actualCountryList = await countryListOption.allTextContents()
     //verify countries list
     expect(expectedCountryList).toEqual(actualCountryList); //assertion
+    await countryList.selectOption({ label: 'India' })
+   
+    await page.waitForTimeout(5000);
+    await countryList.selectOption({ index: 9 });
+    await page.waitForTimeout(5000);
+    await countryList.selectOption('japan');
+
+
+
+
 })
 
 

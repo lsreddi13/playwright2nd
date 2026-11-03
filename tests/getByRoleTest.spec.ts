@@ -10,7 +10,7 @@ await page.getByRole('checkbox', {name: "asdf"});
 
 
 
-await page.locator("[data-testid='login-password']").fill("qa12345");
+await page.locator("[data-testid='login-password']").fill("qa12345")
 
 
 });

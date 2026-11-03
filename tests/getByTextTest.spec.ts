@@ -32,6 +32,7 @@ singinBtn.pressSequentially("fada");
 singinBtn.check
 singinBtn.uncheck
 
+
 await page.waitForTimeout(500);
 
 //get by text
