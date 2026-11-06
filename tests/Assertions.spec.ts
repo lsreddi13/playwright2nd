@@ -38,7 +38,7 @@ test('practice assertions to have value', async ({ page }) => {
     await page.waitForTimeout(2000);
 
     await expect(nameBox).toHaveValue(username2)
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(2000); 
 
 
 })
