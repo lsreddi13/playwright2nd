@@ -1,4 +1,4 @@
-import { test, expect} from '@playwright/test';
+import { test, expect, Page} from '@playwright/test';
 
 //
 test('getbyrole   locator testing', async ({page}) => {
@@ -8,11 +8,14 @@ await page.goto('https://www.qapractice.com/practice-login-form');
 //enter user name
 await page.getByRole('checkbox', {name: "asdf"});
 
-
-
-await page.locator("[data-testid='login-password']").fill("qa12345")
+await enterPassword(page, "qa12345");
 
 
 });
+
+function enterPassword(page :Page, passwordValue :string){
+     page.locator("[data-testid='login-password']").fill(passwordValue);
+
+}
 
 

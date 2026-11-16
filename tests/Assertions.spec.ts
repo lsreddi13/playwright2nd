@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Page } from "@playwright/test";
 
 test.skip('practice assertions', async ({ page }) => {
 
@@ -33,12 +33,22 @@ test('practice assertions to have value', async ({ page }) => {
 
     const username2 = "Sasidhar";
 
-    const nameBox = await page.getByPlaceholder("Enter your name");
-    nameBox.fill(username);
+    enterUname(page, "sasi");
     await page.waitForTimeout(2000);
-
-    await expect(nameBox).toHaveValue(username2)
+    const abe = verifyEnteredUserName(page);
+    await expect(abe).toEqual(username2)
     await page.waitForTimeout(2000); 
 
 
 })
+function verifyEnteredUserName(page: Page){
+    const enterUname_PlaceHolder = "Enter your name";
+    const nameBoxValue =  page.getByPlaceholder(enterUname_PlaceHolder).textContent();
+    return nameBoxValue;
+}
+
+function enterUname(page: Page, username: string){
+    const enterUname_PlaceHolder = "Enter your name";
+    const nameBox =  page.getByPlaceholder(enterUname_PlaceHolder);
+    nameBox.fill(username);
+}

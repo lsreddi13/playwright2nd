@@ -27,7 +27,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
      
-    browserName: 'chromium',
+    // browserName: 'chromium',
     // screenshot: 'only-on-failure',
   
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -54,15 +54,15 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'my test results', use: { ...devices['Desktop Chrome'] },default : true
+      name: 'chromium', use: { ...devices['Desktop Chrome'] },default: false
     },
 
     {
-      name: 'firefox', use: { ...devices['Desktop Firefox'] },default : false
+      name: 'firefox', use: { ...devices['Desktop Firefox'] }, default: true
     },
 
     {
-      name: 'webkit', use: { ...devices['Desktop Safari'] }, default : false
+      name: 'webkit', use: { ...devices['Desktop Safari'] }, default: false
     },
 
     /* Test against mobile viewports. */
