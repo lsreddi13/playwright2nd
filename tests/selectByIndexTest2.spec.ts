@@ -29,14 +29,14 @@ test('use for loop and select each country', async ({ page }) => {
 
 const URL = "https://www.qapractice.com/practice-forms";
     await page.goto(URL);
+    
     const countryListSelect = await page.locator('[id="forms-country"]');
 
     //get the length of list items
-
-    for (let i = 0; i < countryListSelect.length) {
-        countryListSelect.selectOption({ index: +i });
-        await page.waitForTimeout(5000);
-    }
+    // for (let i = 0; i < countryListSelect.length) {
+    //     countryListSelect.selectOption({ index: +i });
+    //     await page.waitForTimeout(5000);
+    // }
 
 
 
