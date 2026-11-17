@@ -27,16 +27,17 @@ function selectCountryIndex(page: Page, Index: number) {
 test('use for loop and select each country', async ({ page }) => {
 
 
-const URL = "https://www.qapractice.com/practice-forms";
+    const URL = "https://www.playwrightautomation.com/practice.html#section-dropdowns";
     await page.goto(URL);
-    
-    const countryListSelect = await page.locator('[id="forms-country"]');
 
+    const countryListSelect = await page.locator('[id="country"]');
+    const numOfCountries = await countryListSelect.locator("option").count();
+    console.log("Number of Countries :" + numOfCountries);
     //get the length of list items
-    // for (let i = 0; i < countryListSelect.length) {
-    //     countryListSelect.selectOption({ index: +i });
-    //     await page.waitForTimeout(5000);
-    // }
+    for (let i = 0; i < numOfCountries; i++) {
+       await  countryListSelect.selectOption({ index: +i });
+        await page.waitForTimeout(5000);
+    }
 
 
 
