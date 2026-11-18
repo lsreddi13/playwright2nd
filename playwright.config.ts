@@ -27,7 +27,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
      
-    // browserName: 'chromium',
+    browserName: 'chromium',
     // screenshot: 'only-on-failure',
   
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -54,11 +54,11 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium', use: { ...devices['Desktop Chrome'] },default: false
+      name: 'chromium', use: { ...devices['Desktop Chrome'] },default: true
     },
 
     {
-      name: 'firefox', use: { ...devices['Desktop Firefox'] }, default: true
+      name: 'firefox', use: { ...devices['Desktop Firefox'] }, default: false
     },
 
     {
