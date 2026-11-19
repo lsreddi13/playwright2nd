@@ -10,7 +10,7 @@ export class signIn {
     user_password: Locator;
     login_btn: Locator;
 
-    signIn(page: Page) {
+    constructor(page: Page) {
         console.log("I am constructor..")
         this.page = page;
         this.user_name = page.getByLabel("Username or email");
