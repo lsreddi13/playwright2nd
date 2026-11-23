@@ -1,9 +1,28 @@
 
-import { test, expect } from "@playwright/test";
+import { test, expect, Page } from "@playwright/test";
 import { StaticTablePage } from "../pages/StaticTablePage";
 
 
-test("Get sport name using country", async ({ page }) => {
+test('click sunday', async({page})=>{
+
+await page.goto("https://www.playwrightautomation.com/practice.html#section-checkboxes");
+
+clickDay(page, "Monday");
+// const a = page.locator('label').filter({hasText: "Sunday"});
+// await a.click();
+await page.waitForTimeout(10000);
+
+})
+
+async function clickDay(page:Page, dayName:string) {
+const a = page.locator('label').filter({hasText: dayName});
+await a.click();
+
+
+    
+}
+
+test.skip("Get sport name using country", async ({ page }) => {
 
     await page.goto("https://www.playwrightautomation.com/practice.html#section-table-static");
 
@@ -14,6 +33,7 @@ test("Get sport name using country", async ({ page }) => {
     const sportsName = await tablePage.getSportByCountry("India");
     
 
+    
     // Locate the row containing the country
     const countryRow = page.getByRole("row").filter({
         has: page.getByRole("cell", { name: countryName, exact: true })

@@ -13,6 +13,7 @@ test('get the cell value based on given cell value', async({page})=>{
 
         const sprotname = await countryLocator.nth(1).innerText();
         console.log("sprotname: "+sprotname);
-
+//use filter and has and has text to get the table value
+//use filter, has to find the locator in playwright ts
 
 })
