@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 export class StaticTablePage {
     constructor(private page: Page) {}
@@ -11,6 +11,8 @@ export class StaticTablePage {
                 exact: true
             })
         });
+countryRow.isVisible();
+       
 
         return await countryRow.getByRole("cell").nth(1).innerText();
     }

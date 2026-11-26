@@ -1,7 +1,7 @@
 //open oirange hrm demo app
 // login as admin
 //click admin tab
-//clic add button
+//click add button
 
 //select user role
 //select status
